@@ -7,9 +7,7 @@ import base64
 import random
 import string
 import json
-
-from urlparse import urlparse, parse_qs
-from urllib import urlencode
+from urllib.parse import urlencode, urlparse
 
 from zanox import __version__
 
