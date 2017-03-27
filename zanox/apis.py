@@ -32,7 +32,7 @@ class PublisherApi(object):
         self.tracking_url_format = 'http://ad.zanox.com/ppc/?{tracking_id}&ULP=[[{destination}]]&zpar9=[[{connect_id}]]'
 
         # Go through keyword arguments, and either save their values to the instance
-        for key, value in kwargs.iteritems():
+        for key, value in kwargs.items():
             setattr(self, key, value)
 
     def construct_url(self, resource, format=None, **parameters):
