@@ -117,7 +117,7 @@ class PublisherApi(object):
         return page_numbers
 
     def pretty_print(self, json_object):
-        print json.dumps(json_object, indent=4, sort_keys=True)
+        print(json.dumps(json_object, indent=4, sort_keys=True))
 
     def get(self, resource, **parameters):
         url = self.construct_url(resource, **parameters)
@@ -140,7 +140,7 @@ class PublisherApi(object):
             deeplink_api_url = '{0}://toolbox.zanox.com/tools/api/deeplink?connectid={1}&adspaceid={2}&url={3}'.format(self.protocol, self.connect_id, adspace_id, destination_url)
             headers = self.get_default_headers()
             response = requests.get(deeplink_api_url, headers=headers)
-            print response.text
+            print(response.text)
             tracking_url = xmltodict.parse(response.text)['deeplink']['url']
         else:
             # Generate the link with the given trakcing url format
