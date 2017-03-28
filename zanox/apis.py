@@ -77,10 +77,10 @@ class PublisherApi(object):
         date = date.strftime(self.datetime_format)
         method = method.upper()
         elements = (method, uri, date, nonce)
-        signature = u''.join(elements)
+        signature = ''.join(elements)
 
         # Encode signature SHA256, and Base64
-        signature = hmac.new(self.secret_key, msg=signature, digestmod=hashlib.sha1).digest()
+        signature = hmac.new(self.secret_key.encode('utf-8'), msg=signature.encode('utf-8'), digestmod=hashlib.sha1).digest()
         signature = base64.b64encode(signature)
         signature = '%s:%s' % (self.connect_id, signature)
         return signature
